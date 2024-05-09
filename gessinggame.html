@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.bundle.js"></script>
+    <style>
+        .r{
+            margin: 120px auto;
+            min-height: 400px;
+            /*border:15px groove blueviolet;*/
+            box-sizing: border-box;
+            box-shadow: 0px 0px 20px 20px aqua,0px 0px 30px 30px rgb(254, 62, 45),0px 0px 40px 40px rgb(10, 244, 139);
+        }
+
+        #in1{
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+
+        }
+
+        body{
+            background-image: url(img/img6.jpg);
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row fs-3">
+            <div class="col-sm-4 mx-auto r bg-info rounded p-5">
+                <b>W-<span id="sp2">0</span> / L-<span id="sp3">0</span></b>
+                <input type="text" class="form-control p-3 m-2" value="Message" disabled id="in1">
+                <b class="mx-4">Generated Number: <span id="sp1"></span></b>
+                <input type="button" value="1" class="mx-5 my-3 px-3 rounded " onclick="demo(this)">
+                <input type="button" value="2" class="mx-4 my-3 px-3 rounded" onclick="demo(this)">
+                <input type="button" value="3" class="mx-5  my-3 px-3 rounded" onclick="demo(this)">
+                <input type="button" value="4" class="mx-5 my-3 px-3 rounded" onclick="demo(this)">
+                <input type="button" value="5" class="mx-4  my-3 px-3 rounded" onclick="demo(this)">
+                <input type="button" value="6" class="mx-5   my-3 px-3 rounded" onclick="demo(this)">
+            </div>
+        </div>
+    </div>
+
+    <audio src="b.mp3" id="b"></audio>
+    <audio src="c.mp3" id="c"></audio>
+    <script>
+       
+    
+        var demo=(x)=>{
+        var in11=document.querySelector("#in1");
+        var s1=document.querySelector("#sp1");
+        var s2=document.querySelector("#sp2");
+        var s3=document.querySelector("#sp3");
+       
+      
+        var n="123456";
+        var ri=Math.floor(Math.random()*n.length);
+        s1.innerHTML=n[ri];
+        b.currentTime=0;
+        c.currentTime=0;
+          if(x.value==n[ri]){
+            in11.value="Congratulations! You Own";
+            in11.style.color="green";
+            s2.innerHTML= parseInt(s2.innerHTML)+1;
+            s2.style.color="green";
+            b.play();
+            c.pause();
+          }
+          else{
+            in11.value="OOPs! You Loss"
+            in11.style.color="red";
+            s3.innerHTML=parseInt(s3.innerHTML)+1;
+            s3.style.color="red";
+            c.play();
+            b.pause();
+          }
+         
+        }
+        
+    </script>
+</body>
+</html>
